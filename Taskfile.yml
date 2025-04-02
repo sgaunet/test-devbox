@@ -1,0 +1,20 @@
+# https://taskfile.dev
+version: '3'
+vars:
+  BINFILE: devbox-test
+
+tasks:
+  default:
+    desc: "List tasks"
+    cmds:
+      - task -a
+
+  snapshot:
+    desc: "Create a snapshot release"
+    cmds:
+      - GITLAB_TOKEN="" goreleaser --clean --snapshot
+    
+  release:
+    desc: "Create a release"
+    cmds:
+      - GITLAB_TOKEN="" goreleaser --clean
